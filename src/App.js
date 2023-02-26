@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css';
 import { init, useConnectWallet } from '@web3-onboard/react'
 import injectedModule from '@web3-onboard/injected-wallets'
-//import { ethers } from 'ethers'
+import { ethers } from 'ethers'
 import { AppBar, Box, Button, Fab, Grid, Paper, Toolbar, Typography } from '@mui/material';
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -39,11 +39,11 @@ function App() {
   const [{ wallet, connecting }, connect, disconnect] = useConnectWallet()
 
   // create an ethers provider
-  //let ethersProvider, signer;
+  let ethersProvider, signer;
 
   if (wallet) {
-    //ethersProvider = new ethers.providers.Web3Provider(wallet.provider, 'any');
-    //signer = ethersProvider.getSigner();
+    ethersProvider = new ethers.providers.Web3Provider(wallet.provider, 'any');
+    signer = ethersProvider.getSigner();
   }
 
   const gotoURL = (url) => {
