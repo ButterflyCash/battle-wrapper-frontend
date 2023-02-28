@@ -8,3 +8,10 @@ body {
 #logo {
     max-height: 100px;
 }
+
+@media only screen and (max-width: 400px) {
+    #connectButton {
+        min-width: 80px;
+    }
+    
+}

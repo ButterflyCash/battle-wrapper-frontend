@@ -18,6 +18,9 @@ const theme = createTheme({
         warning: {
             main: '#FFAD06',
         },
+        action: {
+            disabledBackground: '#736b6b',
+        }
     },
 });
 
@@ -56,27 +59,30 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
         <Box className="App" sx={{ pb: 10 }}>
-          <AppBar position="static" sx={{ px: 2 }} color="transparent">
-            <Toolbar disableGutters sx={{display: "flex", flexDirection: 'row'}}>
-                <Box id="logo">
-                <Image
-                    src="/images/logo.png"
-                    height="100%"
-                    width="100%"
-                    heightalt="BattleWrapper Logo"
-                    fit="contain"
-                    sx={{ position: 'relative', left: '-5px', maxHeight: 100 }}
-                />
-                </Box>
-                <Button
-                    disabled
-                    variant="contained"
-                    sx={{ width: 150, marginLeft: 'auto' }}
-                    onClick={() => (wallet ? disconnect(wallet) : connect())}
-                    color="primary"
-                >
-                  {connecting ? 'connecting' : wallet ? 'disconnect' : 'connect'}
-                </Button>
+          <AppBar position="static" color="transparent">
+            <Toolbar disableGutters>
+                <Grid container sx={{padding: 0}} alignItems="center">
+                    <Grid item xs={0} sm={1} lg={2} display="flex"></Grid>
+                    <Grid item xs={9} sm={9} lg={8} display="flex" sx={{ px: 1 }}>
+                        <Image
+                            src="/images/logo.png"
+                            heightalt="BattleWrapper Logo"
+                            fit="scale-down"
+                            sx={{ maxHeight: 100}}
+                        />
+                    </Grid>
+                    <Grid item xs={3} sm={2} lg={2} display="flex" justifyContent="center" sx={{ px: 2 }}>
+                        <Button
+                            id="connectButton"
+                            disabled
+                            variant="contained"
+                            sx={{ minWidth: 100, height: 30}}
+                            onClick={() => (wallet ? disconnect(wallet) : connect())}
+                        >
+                          {connecting ? 'connecting' : wallet ? 'disconnect' : 'connect'}
+                        </Button>
+                    </Grid>
+                </Grid>
             </Toolbar>
           </AppBar>
           <Box sx={{ width: '90%', margin: 'auto', mt: 3, maxWidth: 600 }}>
