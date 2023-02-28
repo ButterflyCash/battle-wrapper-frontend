@@ -15,6 +15,9 @@ const theme = createTheme({
         primary: {
             main: '#736b6b',
         },
+        warning: {
+            main: '#FFAD06',
+        },
     },
 });
 
@@ -54,11 +57,21 @@ function App() {
     <ThemeProvider theme={theme}>
         <Box className="App" sx={{ pb: 10 }}>
           <AppBar position="static" sx={{ px: 2 }} color="transparent">
-            <Toolbar disableGutters sx={{display: "flex", justifyContent: "flex-end"}}>
+            <Toolbar disableGutters sx={{display: "flex", flexDirection: 'row'}}>
+                <Box id="logo">
+                <Image
+                    src="/images/logo.png"
+                    height="100%"
+                    width="100%"
+                    heightalt="BattleWrapper Logo"
+                    fit="contain"
+                    sx={{ position: 'relative', left: '-5px', maxHeight: 100 }}
+                />
+                </Box>
                 <Button
                     disabled
                     variant="contained"
-                    sx={{ minWidth: 140, maxWidth: 200 }}
+                    sx={{ width: 150, marginLeft: 'auto' }}
                     onClick={() => (wallet ? disconnect(wallet) : connect())}
                     color="primary"
                 >
@@ -91,6 +104,7 @@ function App() {
                         <Fab
                             variant="extended"
                             sx={{width: '75%'}}
+                            color="warning"
                             onClick={() => gotoURL('https://docs.battlewrapper.com')}
                         >
                             Docs
@@ -101,6 +115,7 @@ function App() {
                             variant="extended"
                             sx={{width: '75%'}}
                             onClick={() => gotoURL('#wrap')}
+                            color="warning"
                         >
                             Wrap
                         </Fab>
@@ -110,6 +125,7 @@ function App() {
                             variant="extended"
                             sx={{width: '75%'}}
                             onClick={() => gotoURL('#faq')}
+                            color="warning"
                         >
                             FAQ
                         </Fab>
@@ -150,11 +166,11 @@ function App() {
                             expandIcon={<ExpandMoreIcon />}
                             aria-controls="panel1a-content"
                             id="panel1a-header"
-                            sx={{backgroundColor: 'gray'}}
+                            sx={{backgroundColor: '#FFAD06'}}
                         >
                             <Typography>What is BattleWrapper</Typography>
                         </AccordionSummary>
-                        <AccordionDetails sx={{backgroundColor: 'gray'}}>
+                        <AccordionDetails sx={{backgroundColor: '#FFAD06'}}>
                             <Typography>
                                 BattleWrapper is a collection of open-sourced smart contracts intended to promote
                                 interoperability between NFT collections and encourage collaboration in blockchain
@@ -167,11 +183,11 @@ function App() {
                             expandIcon={<ExpandMoreIcon />}
                             aria-controls="panel2a-content"
                             id="panel2a-header"
-                            sx={{backgroundColor: 'gray'}}
+                            sx={{backgroundColor: '#FFAD06'}}
                         >
                             <Typography>Why Zoogz?</Typography>
                         </AccordionSummary>
-                        <AccordionDetails sx={{backgroundColor: 'gray'}}>
+                        <AccordionDetails sx={{backgroundColor: '#FFAD06'}}>
                             <Typography>
                                 We are big fans of&nbsp;
                                 <a href="https://twitter.com/0x_minifridge" target="_blank" rel="noreferrer">@0x_minifridge</a>
@@ -187,11 +203,11 @@ function App() {
                             expandIcon={<ExpandMoreIcon />}
                             aria-controls="panel3a-content"
                             id="panel3a-header"
-                            sx={{backgroundColor: 'gray'}}
+                            sx={{backgroundColor: '#FFAD06'}}
                         >
                             <Typography>Can I BattleWrap My Collection?</Typography>
                         </AccordionSummary>
-                        <AccordionDetails sx={{backgroundColor: 'gray'}}>
+                        <AccordionDetails sx={{backgroundColor: '#FFAD06'}}>
                             <Typography>
                                 Absolutely! We aim to release all contracts and detailed instructions soon. Keep an eye
                                 out for announcements from &nbsp;
